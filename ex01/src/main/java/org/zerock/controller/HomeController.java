@@ -22,6 +22,7 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
+	//(200330) chap6.4.2 반환형 String: home을 반환했기 때문에 /WEB-INF/views/home.jsp
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
