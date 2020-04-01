@@ -15,28 +15,13 @@
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
 
-	<!-- (200330) chap6.5.1 반환형 void: 호출하는 URL과 동일한 jsp파일 (servlet-context 파일의 설정과 맞물려 URL경로를 View로 처리) -->
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<!-- (200331) chap6.5.5 파일업로드 -->
-	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<beans:property name="defaultEncoding" value="utf-8"></beans:property>
-		<!-- 1024 * 1024 * 2 bytes 10MB -->
-		<beans:property name="maxUploadSize" value="104857560"></beans:property>
-		<!-- 1024 * 1024 * 2 bytes 2MB -->
-		<beans:property name="maxUploadSizePerFile" value="2097152"></beans:property>
-		<beans:property name="uploadTempDir" value="file:/C:/upload/tmp"></beans:property>
-		<beans:property name="maxInMemorySize" value="10485756"></beans:property>
-	</beans:bean>
-	
-	<!-- (200325) 지정된 패키지를 scan 하도록 설정. 해당 패키지의 선언된 클래스를 조사하면서 객체(Bean) 설정에 사용되는 어노테이션들을 가진 클래스들을
-	파악하고 필요하면 이를 객체로 생성하여 관리 -->
 	<context:component-scan base-package="org.zerock.controller" />
-	<context:component-scan base-package="org.zerock.exception" />
 	
 	
 	
