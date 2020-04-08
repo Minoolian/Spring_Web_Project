@@ -26,7 +26,8 @@
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
-
+	
+	<!-- Chapter 8.1.2: 해당 패키지를 스캔하도록 설정 -->
 	<mybatis-spring:scan
 		base-package="org.zerock.mapper" />
 </beans>
