@@ -41,10 +41,13 @@
 					<label>Writer</label> <input class="form-control" name='writer'
 						value='<c:out value="${board.writer}"/>' readonly="readonly">
 				</div>
-				<button data-oper="modify" class="btn btn-default"
-					onclick="location.href='/board/modify?bno=<c:out value="${board.bno }" />'">Modify</button>
-				<button data-oper="list" class="btn btn-info" onclick="location.href='/board/list'">List</button>
+				<button data-oper="modify" class="btn btn-default">Modify</button>
+				<button data-oper="list" class="btn btn-info">List</button>
 
+				<form id='openForm' action="/board/modify" method="get">
+					<input type='hidden' id='bno' name='bno'
+						value='<c:out value="${board.bno }"/>'>
+				</form>
 
 			</div>
 			<!--  end panel-body -->
@@ -55,4 +58,27 @@
 	<!-- end panel -->
 </div>
 <!-- /.row -->
+
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		var openForm = $("#openForm");
+
+		$("button[data-oper='modify']").on("click", function(e) {
+
+			openForm.attr("action", "/board/modify").submit();
+
+		});
+			
+		
+		$("button[data-oper='list']").on("click", function(e) {
+
+			openForm.find('#bno').remove();
+			openForm.attr("action", "/board/list");
+			openForm.submit();
+
+		});
+
+	});
+</script>
 <%@include file="../includes/footer.jsp"%>
