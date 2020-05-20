@@ -24,7 +24,7 @@ public class ReplyMapperTests {
 	@Setter(onMethod_ = {@Autowired})
 	private ReplyMapper mapper;
 	
-	@Test
+	//@Test
 	public void testCreate() {
 		
 		IntStream.rangeClosed(10, 20).forEach(i->{
@@ -84,6 +84,16 @@ public class ReplyMapperTests {
 		Criteria cri=new Criteria();
 		
 		List<ReplyVO> replies=mapper.getListWithPaging(cri, bnoArr[0]);
+		
+		replies.forEach(reply -> log.info(reply));
+	}
+	
+	@Test
+	public void testList2() {
+		
+		Criteria cri=new Criteria(2,10);
+		
+		List<ReplyVO> replies=mapper.getListWithPaging(cri, 202L);
 		
 		replies.forEach(reply -> log.info(reply));
 	}
