@@ -21,6 +21,7 @@
 	<script>
 		$(document).ready(function() {
 
+<<<<<<< HEAD
 			var regex= new RegExp("(.*?)\.(exe|sh|zip|alz)$");
 			var maxSize= 5242880; //5MB
 
@@ -42,6 +43,8 @@
 				
 			}
 
+=======
+>>>>>>> a2270237c41529ede1b9dae77b3e09ac46f2010a
 			$("#uploadBtn").on("click", function(e){
 
 				var formData = new FormData();
@@ -55,11 +58,14 @@
 				// add filedate to formdata
 				for(var i =0; i < files.length; i++){
 
+<<<<<<< HEAD
 					if(!checkExtension(files[i].name, files[i].size)){
 
 						continue;
 					}
 					
+=======
+>>>>>>> a2270237c41529ede1b9dae77b3e09ac46f2010a
 					formData.append("uploadFile", files[i]);
 				}
 
@@ -70,11 +76,18 @@
 					contentType: false,
 					data: formData,
 					type: 'POST',
+<<<<<<< HEAD
 					dataType: 'json',
 					success: function(result){
 
 						console.log(result);
 					}
+=======
+					success: function(result){
+
+						alert("Uploaded");
+						}
+>>>>>>> a2270237c41529ede1b9dae77b3e09ac46f2010a
 
 					});
 				

@@ -1,6 +1,7 @@
 package org.zerock.controller;
 
 import java.io.File;
+<<<<<<< HEAD
 import java.io.FileOutputStream;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
@@ -12,16 +13,25 @@ import java.util.UUID;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+=======
+
+>>>>>>> a2270237c41529ede1b9dae77b3e09ac46f2010a
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.zerock.domain.AttachFileDTO;
 
 import lombok.extern.log4j.Log4j;
 import net.coobird.thumbnailator.Thumbnailator;
+=======
+import org.springframework.web.multipart.MultipartFile;
+
+import lombok.extern.log4j.Log4j;
+>>>>>>> a2270237c41529ede1b9dae77b3e09ac46f2010a
 
 @Controller
 @Log4j
@@ -62,6 +72,7 @@ public class UploadController {
 		log.info("upload ajax");
 	}
 	
+<<<<<<< HEAD
 	private String getFolder() {
 		
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
@@ -102,12 +113,28 @@ public class UploadController {
 			 * log.info("Upload File Name: "+multipartFile.getOriginalFilename());
 			 * log.info("Upload File Size: "+multipartFile.getSize());
 			 */
+=======
+	@PostMapping("/uploadAjaxAction")
+	public void uploadAjaxPost(MultipartFile[] uploadFile) {
+		
+		log.info("update ajax post......");
+		
+		String uploadFolder = "C:\\upload";
+		
+		
+		for(MultipartFile multipartFile : uploadFile) {
+			
+			log.info("---------------------------------------");
+			log.info("Upload File Name: "+multipartFile.getOriginalFilename());
+			log.info("Upload File Size: "+multipartFile.getSize());
+>>>>>>> a2270237c41529ede1b9dae77b3e09ac46f2010a
 			
 			String uploadFileName = multipartFile.getOriginalFilename();
 			
 			// IE has file path
 			uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("\\")+1);
 			log.info("only file name: "+uploadFileName);
+<<<<<<< HEAD
 			attachDTO.setFileName(uploadFileName);
 			
 			UUID uuid = UUID.randomUUID();
@@ -136,11 +163,19 @@ public class UploadController {
 				//add to list
 				list.add(attachDTO);
 				
+=======
+			
+			File saveFile=new File(uploadFolder, uploadFileName);
+			
+			try {
+				multipartFile.transferTo(saveFile);
+>>>>>>> a2270237c41529ede1b9dae77b3e09ac46f2010a
 			} catch(Exception e) {
 				log.error(e.getMessage());
 			}
 		}
 		
+<<<<<<< HEAD
 		return new ResponseEntity<List<AttachFileDTO>>(list, HttpStatus.OK);
 		
 	}
@@ -157,6 +192,10 @@ public class UploadController {
 		
 		return false;
 	}
+=======
+	}
+
+>>>>>>> a2270237c41529ede1b9dae77b3e09ac46f2010a
 	
 	
 }

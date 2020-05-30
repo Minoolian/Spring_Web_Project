@@ -117,6 +117,7 @@
 			<version>4.7</version>
 			<scope>test</scope>
 		</dependency>
+<<<<<<< HEAD
 
 		<!-- https://mvnrepository.com/artifact/net.coobird/thumbnailator -->
 		<dependency>
@@ -141,6 +142,8 @@
 
 
 
+=======
+>>>>>>> a2270237c41529ede1b9dae77b3e09ac46f2010a
 	</dependencies>
 	<build>
 		<plugins>
