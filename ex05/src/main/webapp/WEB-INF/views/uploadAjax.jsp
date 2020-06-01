@@ -12,6 +12,40 @@
 	<div class='uploadDiv'>
 		<input type='file' name='uploadFile' multiple>
 	</div>
+	
+	<style>
+		.uploadResult{
+
+			width:100%;
+			background-color:gray;
+		}
+
+		.uploadResult ul{
+
+			display:flex;
+			flex-flow:row;
+			justify-content: center;
+			alignitems: center;
+		}
+
+		.uploadResult ul li{
+
+			list-style: none;
+			padding: 10px;
+		}
+
+		.uploadResult ul li img{
+
+			width: 200px;
+		
+		}
+	</style>
+	
+	<div class='uploadResult'>
+		<ul>
+		</ul>
+	</div>
+	
 	<button id='uploadBtn'>Upload</button>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.js"
@@ -21,7 +55,6 @@
 	<script>
 		$(document).ready(function() {
 
-<<<<<<< HEAD
 			var regex= new RegExp("(.*?)\.(exe|sh|zip|alz)$");
 			var maxSize= 5242880; //5MB
 
@@ -43,8 +76,8 @@
 				
 			}
 
-=======
->>>>>>> a2270237c41529ede1b9dae77b3e09ac46f2010a
+			var cloneObj = $(".uploadDiv").clone();
+
 			$("#uploadBtn").on("click", function(e){
 
 				var formData = new FormData();
@@ -58,16 +91,14 @@
 				// add filedate to formdata
 				for(var i =0; i < files.length; i++){
 
-<<<<<<< HEAD
 					if(!checkExtension(files[i].name, files[i].size)){
 
 						continue;
 					}
 					
-=======
->>>>>>> a2270237c41529ede1b9dae77b3e09ac46f2010a
 					formData.append("uploadFile", files[i]);
 				}
+
 
 				$.ajax({
 
@@ -76,22 +107,48 @@
 					contentType: false,
 					data: formData,
 					type: 'POST',
-<<<<<<< HEAD
 					dataType: 'json',
 					success: function(result){
 
 						console.log(result);
-					}
-=======
-					success: function(result){
 
-						alert("Uploaded");
-						}
->>>>>>> a2270237c41529ede1b9dae77b3e09ac46f2010a
+						showUploadedFile(result);
+
+						$(".uploadDiv").html(cloneObj.html());
+					}
 
 					});
 				
-				});
+			});
+
+
+				
+
+			var uploadResult= $(".uploadResult ul");
+
+			function showUploadedFile(uploadResultArr){
+
+				var str="";
+				
+				$(uploadResultArr).each(function(i, obj){
+
+					if(!obj.image){
+						str+= "<li><img src='resources/img/a.jpg'>" + obj.fileName + "</li>";
+					} else{
+						
+					//str += "<li>" + obj.fileName + "</li>";
+
+						var fileCallPath=encodeURIComponent(obj.uploadPath+"/s_"+obj.uuid+"_"+obj.fileName);
+
+						str+= "<li><img src='/display?fileName="+fileCallPath+"'><li>";
+					}
+
+			});
+
+				uploadResult.append(str);
+			}
+
+
 			
 		});
 	</script>
