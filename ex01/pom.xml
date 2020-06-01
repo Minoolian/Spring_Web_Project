@@ -126,7 +126,7 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.9.4</version>
+			<version>2.9.10.4</version>
 		</dependency>
 		<!-- (200331) chap6.5.5 파일업로드 처리: spring legacy project가 servlet 2.5기준으로 생성되기에 이용해야한다. --> 
 		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
