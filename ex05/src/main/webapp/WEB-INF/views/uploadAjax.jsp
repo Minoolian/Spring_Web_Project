@@ -188,23 +188,23 @@
 				$(uploadResultArr).each(function(i, obj){
 
 					if(!obj.image){
-
+												
 						var fileCallPath = encodeURIComponent(obj.uploadPath+"/"+obj.uuid+"_"+obj.fileName);
 
 						str += "<li><a href='/download?fileName="+fileCallPath+"'>"+"<img src='/resources/img/a.jpg'>"+obj.fileName+"</a>"+"<span data-file=\'"+fileCallPath+"\' data-type='file'> x </span>"+"</div></li>";
-						
+ 						
 					} else{
 						
 					//str += "<li>" + obj.fileName + "</li>";
 
-						var fileCallPath=encodeURIComponent(obj.uploadPath+"/s_"+obj.uuid+"_"+obj.fileName);
+ 						var fileCallPath=encodeURIComponent(obj.uploadPath+"/s_"+obj.uuid+"_"+obj.fileName);
 
 						var originPath = obj.uploadPath+"\\"+obj.uuid+"_"+obj.fileName;
 
 						originPath = originPath.replace(new RegExp(/\\/g),"/");
 
 						str+= "<li><a href=\"javascript:showImage(\'"+originPath+"\')\"><img src='/display?fileName="+fileCallPath+"'></a>"+"<span data-file=\'"+fileCallPath+"\' data-type='image'> x </span>"+"</div></li>";
-					}
+ 					}
 
 			});
 
