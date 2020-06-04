@@ -159,10 +159,9 @@ $(document).ready(function(e){
 			str+="<input type='hidden' name='attachList["+i+"].uploadPath' value='"+jobj.data("path")+"'>";
 			str+="<input type='hidden' name='attachList["+i+"].fileType' value='"+jobj.data("type")+"'>";
 
-			formObj.append(str).submit();
 
 			});
-
+		formObj.append(str).submit();
 
 		});
 
