@@ -555,7 +555,7 @@ $(document).ready(function(){
 				//image type
 				if(!attach.fileType){
 
-					str+="<li "
+					str+="<li ";
 					str+="data-path='"+attach.uploadPath+"' data-uuid='"+attach.uuid+"'data-filename='"+attach.fileName+"'data-type='"+attach.fileType+"'><div>";
 					str+="<span>"+attach.fileName+"</span>";
 					str+="<img src='/resources/img/a.jpg'></a>";
